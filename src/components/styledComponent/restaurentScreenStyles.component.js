@@ -9,7 +9,7 @@ export const SafeAreaViewStyled = styled(SafeAreaView)`
 `;
 
 export const SearchBarContainer = styled.View`
-  padding: 10px;
+  padding: ${(props) => props.theme.space[3]};
 `;
 
 export const SearchBarStyle = styled(Searchbar)`
@@ -21,5 +21,5 @@ export const SearchBarStyle = styled(Searchbar)`
 
 export const RestaurantListContainer = styled.View`
   flex: 1;
-  padding: 10px;
+  padding: ${(props) => props.theme.space[3]};
 `;
