@@ -1,4 +1,6 @@
-import { Avatar, Button, Card, Text } from 'react-native-paper';
+import { StyleSheet } from "react-native";
+import { Avatar, Button, Card, Text } from "react-native-paper";
+import { RestaurantCardCover, RestaurantCardStyled, RestaurantCardTitle } from "./styledComponent/restaurantCard.component";
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
@@ -13,12 +15,13 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     isClosedTemporarily = false,
   } = restaurant;
   return (
-    <Card elevation={5}>
-      <Card.Cover source={{ uri: photos[0] }} />
+    <RestaurantCardStyled elevation={5}>
+      <RestaurantCardCover source={{ uri: photos[0] }} />
       <Card.Content>
-      <Text variant="titleLarge">{name}</Text>
-    </Card.Content>
-    
-  </Card>
+        <RestaurantCardTitle>
+          {name}
+        </RestaurantCardTitle>
+      </Card.Content>
+    </RestaurantCardStyled>
   );
 };
