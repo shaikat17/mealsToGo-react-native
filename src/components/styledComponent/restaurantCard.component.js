@@ -8,13 +8,39 @@ export const RestaurantCardStyled = styled(Card)`
 `;
 
 export const RestaurantCardTitle = styled(Text)`
+  font-family: ${(props) => props.theme.fonts.body};
   font-size: ${(props) => props.theme.fontSizes.title};
   font-weight: bold;
-  padding-top: ${(props) => props.theme.space[2]};
+  padding-top: ${(props) => props.theme.space[4]};
   color: ${(props) => props.theme.colors.text.primary};
+`;
+
+export const RestaurantCardAddress = styled(Text)`
+  font-family: ${(props) => props.theme.fonts.heading};
+  font-size: ${(props) => props.theme.fontSizes.caption};
+  font-weight: bold;
 `;
 
 export const RestaurantCardCover = styled(Card.Cover)`
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
+`;
+
+export const RestaurantCardIcon = styled.Image`
+  width: 20px;
+  height: 20px;
+`;
+export const RestaurantCardIconContainer = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const RestaurantCardStar = styled.View`
+  flex-direction: row;
+  padding-top: ${(props) => props.theme.space[2]};
+  padding-bottom: ${(props) => props.theme.space[2]};
+`;
+
+export const RestaurantCardStatus = styled.View`
 `;
