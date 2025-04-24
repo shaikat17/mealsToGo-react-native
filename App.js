@@ -14,6 +14,8 @@ import { ThemeProvider } from "styled-components/native";
 import { theme } from "./src/infrastructure/theme";
 import { Text, View } from "react-native";
 
+import { restaurantRequest } from "./src/services/restaurants/restaurants.service";
+
 const Tab = createBottomTabNavigator();
 export default function App() {
   const [oswaldLoaded] = useOswald({
@@ -38,10 +40,10 @@ export default function App() {
         <NavigationContainer>
           <Tab.Navigator
             screenOptions={({ route }) => ({
-
               // tabbar colors
-              tabBarActiveTintColor: "tomato", 
-              tabBarInactiveTintColor: "gray",               tabBarIcon: ({ color, size }) => {
+              tabBarActiveTintColor: "tomato",
+              tabBarInactiveTintColor: "gray",
+              tabBarIcon: ({ color, size }) => {
                 let iconName;
 
                 if (route.name === "Restaurants") {
@@ -63,7 +65,7 @@ export default function App() {
               tabBarStyle: {
                 paddingTop: 10,
                 height: 75,
-              }
+              },
             })}
           >
             <Tab.Screen name="Restaurants" component={RestaurantScreen} />
