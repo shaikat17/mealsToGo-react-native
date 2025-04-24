@@ -38,9 +38,10 @@ export default function App() {
         <NavigationContainer>
           <Tab.Navigator
             screenOptions={({ route }) => ({
-              tabBarActiveTintColor: "#de2a36", // active tab color (purple, example)
-              tabBarInactiveTintColor: "#888", // inactive tab color
-              tabBarIcon: ({ color, size }) => {
+
+              // tabbar colors
+              tabBarActiveTintColor: "tomato", 
+              tabBarInactiveTintColor: "gray",               tabBarIcon: ({ color, size }) => {
                 let iconName;
 
                 if (route.name === "Restaurants") {
@@ -53,6 +54,16 @@ export default function App() {
 
                 return <Icon source={iconName} color={color} size={size} />;
               },
+              headerShown: false,
+              tabBarLabelStyle: {
+                fontFamily: "Oswald_400Regular",
+                fontSize: 12,
+                marginBottom: 25,
+              },
+              tabBarStyle: {
+                paddingTop: 10,
+                height: 75,
+              }
             })}
           >
             <Tab.Screen name="Restaurants" component={RestaurantScreen} />
