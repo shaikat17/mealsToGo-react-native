@@ -1,11 +1,12 @@
 
+import { FlatList } from "react-native";
 import { RestaurantInfoCard } from "../restaurantInfoCard.components";
 import {
   SafeAreaViewStyled,
   SearchBarContainer,
   SearchBarStyle,
-  RestaurantListContainer,
 } from "../styledComponent/restaurentScreenStyles.component";
+import { RestaurantList } from "../styledComponent/restaurantCard.component";
 
 export const RestaurantScreen = () => {
   return (
@@ -13,9 +14,12 @@ export const RestaurantScreen = () => {
       <SearchBarContainer>
         <SearchBarStyle/>
       </SearchBarContainer>
-      <RestaurantListContainer>
-        <RestaurantInfoCard />
-      </RestaurantListContainer>
+      <RestaurantList
+      data={[{name: 1}, {name: 2}, {name: 3}, {name: 4}, {name: 5}]}
+      renderItem={() => <RestaurantInfoCard />}
+      keyExtractor={(item) => item.name}
+      contentContainerStyle={{ padding: 10 }}
+      />
     </SafeAreaViewStyled>
   );
 };

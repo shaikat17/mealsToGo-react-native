@@ -5,7 +5,7 @@ import { Searchbar } from "react-native-paper";
 
 export const SafeAreaViewStyled = styled(SafeAreaView)`
   flex: 1;
-  padding-top: ${Platform.OS === "android" ? Constants.statusBarHeight : 0}px;
+  margin-top: ${Platform.OS === "android" ? Constants.statusBarHeight : 0}px;
 `;
 
 export const SearchBarContainer = styled.View`

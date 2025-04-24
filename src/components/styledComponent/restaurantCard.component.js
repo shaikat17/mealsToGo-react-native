@@ -1,17 +1,17 @@
 import styled from "styled-components/native";
 import { Card } from "react-native-paper";
-import { Text } from "react-native";
+import { FlatList, Text } from "react-native";
 
 export const RestaurantCardStyled = styled(Card)`
   background-color: white;
-  margin: ${(props) => props.theme.space[1]};
+  margin-bottom: ${(props) => props.theme.space[3]};
 `;
 
 export const RestaurantCardTitle = styled(Text)`
   font-family: ${(props) => props.theme.fonts.body};
   font-size: ${(props) => props.theme.fontSizes.title};
   font-weight: bold;
-  padding-top: ${(props) => props.theme.space[4]};
+  padding-top: ${(props) => props.theme.space[3]};
   color: ${(props) => props.theme.colors.text.primary};
 `;
 
@@ -43,4 +43,11 @@ export const RestaurantCardStar = styled.View`
 `;
 
 export const RestaurantCardStatus = styled.View`
+`;
+
+export const RestaurantList = styled(FlatList).attrs({
+  contentContainerStyle: {
+    padding: 15,
+  },
+})`
 `;

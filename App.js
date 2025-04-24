@@ -1,4 +1,7 @@
 import { StatusBar } from "expo-status-bar";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { NavigationContainer } from "@react-navigation/native";
+import { Icon } from "react-native-paper";
 
 import {
   useFonts as useOswald,
@@ -11,6 +14,7 @@ import { ThemeProvider } from "styled-components/native";
 import { theme } from "./src/infrastructure/theme";
 import { Text, View } from "react-native";
 
+const Tab = createBottomTabNavigator();
 export default function App() {
   const [oswaldLoaded] = useOswald({
     Oswald_400Regular,
@@ -18,8 +22,7 @@ export default function App() {
   const [latoLoaded] = useLato({
     Lato_400Regular,
   });
-  
-  
+
   if (!oswaldLoaded || !latoLoaded) {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -32,7 +35,31 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <RestaurantScreen />
+        <NavigationContainer>
+          <Tab.Navigator
+            screenOptions={({ route }) => ({
+              tabBarActiveTintColor: "#de2a36", // active tab color (purple, example)
+              tabBarInactiveTintColor: "#888", // inactive tab color
+              tabBarIcon: ({ color, size }) => {
+                let iconName;
+
+                if (route.name === "Restaurants") {
+                  iconName = "silverware-fork-knife";
+                } else if (route.name === "Map") {
+                  iconName = "map";
+                } else if (route.name === "Settings") {
+                  iconName = "cog-outline";
+                }
+
+                return <Icon source={iconName} color={color} size={size} />;
+              },
+            })}
+          >
+            <Tab.Screen name="Restaurants" component={RestaurantScreen} />
+            <Tab.Screen name="Map" component={RestaurantScreen} />
+            <Tab.Screen name="Settings" component={RestaurantScreen} />
+          </Tab.Navigator>
+        </NavigationContainer>
       </ThemeProvider>
       <StatusBar style="auto" />
     </>
